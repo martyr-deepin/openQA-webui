@@ -1,0 +1,19 @@
+#!/bin/bash -e
+
+container='openqa-webui'
+
+function stop(){
+
+    container_id=$(docker ps -a -f name=$container -q)
+    if [ -z "$container_id" ]; then
+        echo "E: container ($container) does not exist "
+        exit 1
+    fi
+
+    docker stop $container
+
+}
+
+stop
+
+

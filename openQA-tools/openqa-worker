@@ -1,0 +1,4 @@
+#!/bin/bash
+export OPENQA_CONFIG="/etc/openqa"
+install -d -m 0755 /var/lib/openqa/pool/0
+/usr/share/openqa/script/worker --instance 0 --isotovideo /usr/lib/os-autoinst/isotovideo --verbose --no-cleanup

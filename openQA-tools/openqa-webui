@@ -1,0 +1,5 @@
+#!/bin/bash
+service apache2 restart
+export OPENQA_CONFIG="/etc/openqa"
+export MOJO_LISTEN="http://0.0.0.0:9526"
+perl /usr/share/openqa/script/openqa daemon -m production --proxy

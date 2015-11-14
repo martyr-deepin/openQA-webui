@@ -1,0 +1,4 @@
+#!/bin/bash
+export OPENQA_CONFIG=/etc/openqa
+perl /usr/share/openqa/script/initdb --prepare_init --force
+perl /usr/share/openqa/script/initdb --init_database

@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+# encoding: utf-8
+
+import configparser
+import sys
+
+clientFile = "/etc/openqa/client.conf"
+
+def store(host, key, secret):
+    config = configparser.ConfigParser()
+    config.read(clientFile)
+    config[host] = {}
+    config[host]["key"] = key
+    config[host]["secret"] = secret
+
+    with open(clientFile, "w") as f:
+        config.write(f)
+
+
+if __name__ == "__main__":
+
+    host = "localhost"
+    if len(sys.argv) < 3:
+        print("please input right key and secret.")
+        quit(-1)
+
+    if len(sys.argv) == 3:
+        key = sys.argv[1]
+        secret = sys.argv[2]
+
+
+    if len(sys.argv) == 4:
+        host = sys.argv[1]
+        key = sys.argv[2]
+        secret = sys.argv[3]
+
+
+    store(host, key, secret)

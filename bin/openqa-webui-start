@@ -1,0 +1,28 @@
+#!/bin/bash -e
+
+container='openqa-webui'
+
+function start(){
+
+    container_id=$(docker ps -a -f name=$container -q)
+    if [ -z "$container_id" ]; then
+        echo "E: container ($container) does not exist "
+        exit 1
+    fi
+
+    stat=$(docker ps -a -f name=$container --format "{{ .Status }}")
+    if [[ "$stat" = Up* ]]; then
+        docker exec -t $container openqa-webui
+    elif [[ "$stat" = Exited* ]]; then
+        docker start $container
+        docker exec -t $container openqa-webui
+    else
+        echo "E: unkonw container status: $stat"
+        exit 1
+    fi
+
+}
+
+start
+
+
