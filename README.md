@@ -1,5 +1,6 @@
 # deepin-openqa-webui
-openQA webui service for deepin
+**Description**: this project is the openQA server running on https://openqa.deepin.io  
+**Thanks**: Thanks to [os-autoinst](https://github.com/os-autoinst) group for providing such a good automated testing framework.
 
 ## dependence
 docker 1.8+ ([Docker Installation](http://docs.docker.com/engine/installation/))  
@@ -28,16 +29,16 @@ make build
 sudo make install
 ```
 
-#### 4. start webui
+## Usage
+#### 1. start webui
 ```shell
-openqa-webui-start   # after running this, your machine will start the deepin/openqa-webui container
+openqa-webui-start
 ```
 
-#### when you don't use it, you can stop it by
+#### 2. stop webui
 ```shell
 openqa-webui-stop
 ```
 
-## uninstall
-After running `openqa-webui-stop`, the container won't be removed from you machine.  
-If you use it any more, just running `docker rm -f deepin/openqa-webui` to remove it.
+## Uninstall
+If you don't use it any more, just run `docker rm -f deepin/openqa-webui` to remove it.
