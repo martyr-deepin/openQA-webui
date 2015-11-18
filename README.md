@@ -6,6 +6,13 @@ docker 1.8+ ([Docker Installation](http://docs.docker.com/engine/installation/))
 docker image: deepin/openqa-base ( [openQA-base](https://github.com/choldrim/deepin-openqa-base-runner) )
 
 ## Usage
+#### 0. environment preparation
+(1) prepare the `/data` dir for the default workspace  
+```shell
+sudo mkdir -p /data
+sudo chmod 777 /data
+```
+
 #### 1. clone the code
 ```shell
 git clone --recursive https://github.com/choldrim/deepin-openqa-webui
