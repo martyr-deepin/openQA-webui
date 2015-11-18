@@ -1,6 +1,3 @@
-[submodule "replace/var/lib/openqa/share/tests/deepin"]
-	path = replace/var/lib/openqa/share/tests/deepin
-	url = https://cr.deepin.io/deepin-testcases
 [submodule "source/openQA"]
 	path = source/openQA
 	url = https://github.com/choldrim/openQA.git
