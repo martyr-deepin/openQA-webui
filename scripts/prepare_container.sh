@@ -1,5 +1,11 @@
 #!/bin/bash -e
 
+host_etc='/data/docker/openqa-webui/etc_openqa'
+host_share='/data/docker/openqa-webui/var_lib_openqa_share'
+
+host_port=80
+container_port=9526
+
 image='deepin/openqa-base'
 container='openqa-webui'
 
@@ -11,9 +17,9 @@ function prepare_container(){
         docker rm -f $container_id
     fi
 
-    docker run --name $container -p 80:9526 \
-        -v /data/docker/openqa-webui/etc_openqa:/etc/openqa \
-        -v /data/docker/openqa-webui/var_lib_openqa_share:/var/lib/openqa/share \
+    docker run --name $container -p $host_port:$container_port \
+        -v $host_etc:/etc/openqa \
+        -v $host_share:/var/lib/openqa/share \
         -d -t $image bash
 
 }
