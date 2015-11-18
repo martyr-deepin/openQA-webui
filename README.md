@@ -13,6 +13,7 @@ git clone --recursive https://github.com/choldrim/deepin-openqa-webui
 
 #### 2. prepare the webui container
 ```shell
+cd deepin-openqa-webui
 make build
 ```
 #### 3. cp the tools to your PATH
