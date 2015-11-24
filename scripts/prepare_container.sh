@@ -13,8 +13,8 @@ function prepare_container(){
 
     container_id=$(docker ps -a -f name=$container -q)
     if [ -n "$container_id" ]; then
-        echo "container ($container) exist, delete it.... "
-        docker rm -f $container_id
+        echo "E: container ($container) exists, please rm it before installation"
+        exit 1
     fi
 
     docker run --name $container -p $host_port:$container_port \
