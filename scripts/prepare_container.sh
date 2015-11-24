@@ -2,6 +2,7 @@
 
 host_etc='/data/docker/openqa-webui/etc_openqa'
 host_share='/data/docker/openqa-webui/var_lib_openqa_share'
+host_testresults='/data/docker/openqa-webui/var_lib_openqa_testresults'
 
 host_port=80
 container_port=9526
@@ -20,6 +21,7 @@ function prepare_container(){
     docker run --name $container -p $host_port:$container_port \
         -v $host_etc:/etc/openqa \
         -v $host_share:/var/lib/openqa/share \
+        -v $host_testresults:/var/lib/openqa/testresults \
         -d -t $image bash
 
 }
